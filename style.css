@@ -1,0 +1,875 @@
+/* ==========================================================================
+   FAST BINGO PRO
+   Premium Telegram Mini App UI
+   ========================================================================== */
+
+:root{
+
+  --bg-main:#090D14;
+  --bg-card:#121A28;
+  --bg-card-alt:#1B2840;
+
+  --gold:#FBBF24;
+  --gold-dark:#F59E0B;
+
+  --green:#10B981;
+  --blue:#3B82F6;
+  --purple:#8B5CF6;
+  --red:#EF4444;
+
+  --text:#FFFFFF;
+  --text-muted:#94A3B8;
+
+  --radius:14px;
+
+  --shadow:
+  0 6px 18px rgba(0,0,0,.35);
+
+  --premium-gradient:
+  linear-gradient(
+  135deg,
+  #FBBF24 0%,
+  #F59E0B 60%,
+  #D97706 100%
+  );
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  background:var(--bg-main);
+  color:var(--text);
+  font-family:
+  "Plus Jakarta Sans",
+  sans-serif;
+}
+
+.hidden{
+  display:none !important;
+}
+
+#app{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  min-height:100vh;
+  padding:10px;
+  padding-bottom:90px;
+}
+
+/* =====================================================
+HEADER
+===================================================== */
+
+.app-header{
+
+  background:var(--bg-card);
+
+  border-radius:var(--radius);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:12px;
+
+  margin-bottom:10px;
+
+  box-shadow:var(--shadow);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.nav-btn{
+
+  width:40px;
+  height:40px;
+
+  border:none;
+  border-radius:10px;
+
+  background:var(--bg-card-alt);
+
+  color:#FFF;
+
+  cursor:pointer;
+}
+
+.logo-title{
+  font-size:18px;
+  font-weight:900;
+}
+
+.highlight{
+  color:var(--gold);
+}
+
+.logo-sub{
+  font-size:9px;
+  color:var(--blue);
+  font-weight:700;
+}
+
+.balance-badge{
+
+  display:flex;
+  align-items:center;
+
+  gap:5px;
+
+  padding:8px 12px;
+
+  border-radius:25px;
+
+  background:
+  rgba(16,185,129,.1);
+
+  border:
+  1px solid var(--green);
+
+  cursor:pointer;
+
+  font-weight:800;
+}
+
+.plus-icon{
+
+  width:16px;
+  height:16px;
+
+  border-radius:50%;
+
+  background:var(--green);
+
+  color:#000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+.tab-bar{
+
+  display:flex;
+
+  gap:5px;
+
+  background:var(--bg-card);
+
+  border-radius:12px;
+
+  padding:5px;
+
+  margin-bottom:10px;
+}
+
+.tab-item{
+
+  flex:1;
+
+  border:none;
+
+  background:transparent;
+
+  color:var(--text-muted);
+
+  padding:8px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  font-size:10px;
+
+  font-weight:700;
+}
+
+.tab-item.active{
+  background:var(--blue);
+  color:#FFF;
+}
+
+/* =====================================================
+CARDS
+===================================================== */
+
+.card-panel,
+.ticket-picker-card,
+.game-status-card{
+
+  background:var(--bg-card);
+
+  border-radius:var(--radius);
+
+  padding:14px;
+
+  margin-bottom:10px;
+
+  box-shadow:var(--shadow);
+}
+
+/* =====================================================
+WELCOME BONUS
+===================================================== */
+
+.welcome-banner{
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(251,191,36,.15),
+  rgba(245,158,11,.05)
+  );
+
+  border:
+  1px solid rgba(251,191,36,.3);
+
+  border-radius:var(--radius);
+
+  padding:12px;
+
+  margin-bottom:10px;
+}
+
+.banner-badge{
+
+  display:inline-block;
+
+  padding:4px 8px;
+
+  border-radius:5px;
+
+  background:var(--premium-gradient);
+
+  color:#000;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.banner-body h3{
+  margin-top:6px;
+}
+
+.banner-body p{
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:5px;
+}
+
+/* =====================================================
+BALL DISPLAY
+===================================================== */
+
+.status-top{
+
+  display:flex;
+  justify-content:space-between;
+
+  margin-bottom:12px;
+}
+
+#game-phase-tag{
+  color:var(--gold);
+  font-weight:800;
+  font-size:11px;
+}
+
+#match-timer-display{
+  color:var(--red);
+  font-weight:800;
+}
+
+.caller-box{
+
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.giant-ball{
+
+  width:80px;
+  height:80px;
+
+  border-radius:50%;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  font-weight:900;
+}
+
+.giant-ball.B{
+  background:#EF4444;
+}
+
+.giant-ball.I{
+  background:#3B82F6;
+}
+
+.giant-ball.N{
+  background:#F59E0B;
+}
+
+.giant-ball.G{
+  background:#10B981;
+}
+
+.giant-ball.O{
+  background:#8B5CF6;
+}
+
+#current-letter{
+  font-size:14px;
+}
+
+#current-number{
+  font-size:24px;
+}
+
+.balls-strip{
+
+  display:flex;
+  gap:5px;
+
+  overflow-x:auto;
+}
+
+.mini-ball{
+
+  min-width:32px;
+  height:32px;
+
+  border-radius:50%;
+
+  background:var(--bg-card-alt);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-weight:800;
+}
+
+/* =====================================================
+TICKET GRID
+===================================================== */
+
+.ticket-pills-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(5,1fr);
+
+  gap:5px;
+
+  max-height:220px;
+
+  overflow-y:auto;
+
+  margin-top:10px;
+}
+
+.pill{
+
+  background:var(--bg-card-alt);
+
+  padding:8px;
+
+  text-align:center;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+.pill.selected{
+
+  background:var(--blue);
+
+  color:#FFF;
+}
+
+.selection-summary{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin:10px 0;
+
+  font-size:12px;
+}
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+.btn-buy,
+.btn-primary{
+
+  width:100%;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  padding:12px;
+
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.btn-buy{
+
+  background:var(--premium-gradient);
+
+  color:#000;
+}
+
+.btn-primary{
+
+  background:var(--blue);
+
+  color:#FFF;
+}
+
+.btn-buy:hover,
+.btn-primary:hover{
+
+  transform:
+  translateY(-2px);
+}
+
+.btn-random{
+  background:var(--purple);
+  color:#FFF;
+  border:none;
+  border-radius:8px;
+  padding:7px 12px;
+}
+
+.btn-go{
+  background:var(--blue);
+  color:#FFF;
+  border:none;
+  border-radius:8px;
+  padding:0 14px;
+}
+
+/* =====================================================
+INPUTS
+===================================================== */
+
+.search-bar{
+  display:flex;
+  gap:6px;
+}
+
+input{
+
+  width:100%;
+
+  background:#0B0F17;
+
+  color:white;
+
+  border:
+  1px solid
+  rgba(255,255,255,.1);
+
+  border-radius:10px;
+
+  padding:10px;
+}
+
+.form-group{
+  margin-bottom:10px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:4px;
+  font-size:12px;
+}
+
+/* =====================================================
+GAME BOARD
+===================================================== */
+
+.compact-tickets-grid{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.compact-ticket-card{
+
+  background:var(--bg-card);
+
+  padding:10px;
+
+  border-radius:12px;
+}
+
+.bingo-grid-compact{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(5,1fr);
+
+  gap:4px;
+}
+
+.grid-cell-compact{
+
+  aspect-ratio:1;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  background:var(--bg-card-alt);
+
+  border-radius:6px;
+
+  font-weight:800;
+}
+
+.grid-cell-compact.daubed{
+
+  background:var(--green);
+}
+
+.grid-cell-compact.free{
+
+  border:
+  1px solid var(--gold);
+}
+
+/* =====================================================
+WINNERS
+===================================================== */
+
+#winners-list,
+#public-winners-list{
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.winner-item{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  background:var(--bg-card-alt);
+
+  padding:12px;
+
+  border-radius:10px;
+}
+
+/* =====================================================
+WALLET
+===================================================== */
+
+.balance-card-lg{
+
+  background:#0B0F17;
+
+  border-radius:12px;
+
+  text-align:center;
+
+  padding:20px;
+
+  margin-bottom:10px;
+}
+
+.balance-card-lg h1{
+
+  color:var(--green);
+
+  margin-top:5px;
+}
+
+.telebirr-box{
+
+  background:
+  rgba(0,163,224,.1);
+
+  border:
+  1px solid
+  rgba(0,163,224,.4);
+
+  border-radius:12px;
+
+  padding:12px;
+
+  margin-bottom:12px;
+}
+
+.tb-tag{
+
+  background:#00A3E0;
+
+  color:#FFF;
+
+  padding:4px 8px;
+
+  border-radius:4px;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.tb-info{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:5px;
+
+  margin:10px 0;
+}
+
+/* =====================================================
+REFERRAL
+===================================================== */
+
+.referral-box{
+
+  margin-top:15px;
+
+  text-align:center;
+}
+
+#referral-code{
+
+  background:var(--bg-card-alt);
+
+  padding:15px;
+
+  border-radius:10px;
+
+  font-size:20px;
+
+  font-weight:900;
+
+  color:var(--gold);
+
+  margin-bottom:10px;
+}
+
+.stats-box{
+
+  display:flex;
+
+  margin-top:15px;
+
+  gap:10px;
+}
+
+.stats-box div{
+
+  flex:1;
+
+  background:var(--bg-card-alt);
+
+  padding:15px;
+
+  border-radius:10px;
+
+  text-align:center;
+}
+
+/* =====================================================
+BOTTOM ACTION BAR
+===================================================== */
+
+.action-bar{
+
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  padding:10px;
+
+  z-index:100;
+}
+
+.bingo-claim-btn{
+
+  width:100%;
+
+  max-width:600px;
+
+  margin:auto;
+
+  display:block;
+
+  background:
+  linear-gradient(
+  135deg,
+  #EF4444,
+  #B91C1C
+  );
+
+  color:white;
+
+  border:none;
+
+  border-radius:15px;
+
+  height:55px;
+
+  font-size:22px;
+
+  font-weight:900;
+}
+
+/* =====================================================
+MODALS
+===================================================== */
+
+.modal-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+  rgba(0,0,0,.8);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  z-index:1000;
+}
+
+.modal-card{
+
+  background:var(--bg-card);
+
+  border-radius:15px;
+
+  padding:18px;
+
+  width:90%;
+
+  max-width:420px;
+
+  position:relative;
+}
+
+.modal-close{
+
+  position:absolute;
+
+  right:10px;
+  top:10px;
+
+  background:none;
+
+  border:none;
+
+  color:white;
+
+  font-size:24px;
+}
+
+/* =====================================================
+CONFETTI
+===================================================== */
+
+#confetti-canvas{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+
+  z-index:9999;
+}
+
+/* =====================================================
+TABLET
+===================================================== */
+
+@media(min-width:768px){
+
+  #app{
+    max-width:1000px;
+  }
+
+  .ticket-pills-grid{
+    grid-template-columns:
+    repeat(8,1fr);
+  }
+
+  .compact-tickets-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(2,1fr);
+  }
+
+  .giant-ball{
+    width:110px;
+    height:110px;
+  }
+
+  #current-number{
+    font-size:36px;
+  }
+
+  .balance-card-lg h1{
+    font-size:40px;
+  }
+}
+``
