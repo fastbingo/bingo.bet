@@ -674,3 +674,205 @@ body{
   pointer-events:none;
   z-index:1000;
 }
+
+/* ==========================================================================
+   TABLET RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media screen and (min-width: 768px) {
+
+  #app{
+    max-width:900px;
+    margin:0 auto;
+    padding:16px;
+  }
+
+  /* Header */
+
+  .app-header{
+    padding:14px 18px;
+  }
+
+  .logo-title{
+    font-size:22px;
+  }
+
+  .logo-sub{
+    font-size:10px;
+  }
+
+  /* User Profile */
+
+  .avatar{
+    width:46px;
+    height:46px;
+  }
+
+  #user-name{
+    font-size:14px;
+  }
+
+  #user-id-display{
+    font-size:11px;
+  }
+
+  /* Top Grid */
+
+  #view-home{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap:16px;
+    align-items:start;
+  }
+
+  .welcome-banner{
+    margin-bottom:12px;
+  }
+
+  .game-status-card{
+    margin-bottom:12px;
+  }
+
+  .ticket-picker-card{
+    height:100%;
+  }
+
+  /* Ticket Selector */
+
+  .ticket-pills-grid{
+    grid-template-columns:repeat(8,1fr);
+    max-height:380px;
+  }
+
+  .pill{
+    font-size:12px;
+    padding:8px;
+  }
+
+  .selection-summary{
+    font-size:13px;
+  }
+
+  .btn-buy{
+    font-size:15px;
+    padding:12px;
+  }
+
+  /* Live Called Ball */
+
+  .giant-ball{
+    width:90px;
+    height:90px;
+  }
+
+  .giant-ball .letter{
+    font-size:14px;
+  }
+
+  .giant-ball .num{
+    font-size:32px;
+  }
+
+  .mini-ball{
+    min-width:36px;
+    height:36px;
+    font-size:13px;
+  }
+
+  /* Game Board */
+
+  .compact-tickets-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .compact-ticket-card{
+    padding:10px;
+  }
+
+  .grid-cell-compact{
+    font-size:14px;
+  }
+
+  /* Winners */
+
+  .winner-item{
+    padding:12px;
+  }
+
+  .w-name{
+    font-size:14px;
+  }
+
+  .w-prize{
+    font-size:16px;
+  }
+
+  /* Wallet */
+
+  .wallet-form{
+    max-width:650px;
+  }
+
+  .form-group input{
+    padding:12px;
+    font-size:14px;
+  }
+
+  .btn-primary{
+    font-size:14px;
+    padding:12px;
+  }
+
+  .balance-card-lg h1{
+    font-size:34px;
+  }
+
+  /* Modals */
+
+  .modal-card{
+    max-width:600px;
+  }
+
+  /* Bingo Button */
+
+  .bingo-claim-btn{
+    max-width:700px;
+    height:60px;
+    font-size:24px;
+  }
+}
+
+
+/* ==========================================================================
+   LARGE TABLETS & SMALL LAPTOPS
+   ========================================================================== */
+
+@media screen and (min-width: 1024px){
+
+  #app{
+    max-width:1200px;
+  }
+
+  .ticket-pills-grid{
+    grid-template-columns:repeat(10,1fr);
+  }
+
+  .compact-tickets-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .giant-ball{
+    width:110px;
+    height:110px;
+  }
+
+  .giant-ball .num{
+    font-size:42px;
+  }
+
+  .balance-card-lg h1{
+    font-size:40px;
+  }
+}
