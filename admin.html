@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAST BINGO ADMIN</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>FAST BINGO ADMIN</title>
-
-<link rel="stylesheet" href="admin.css">
-
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
 
 <div class="container">
 
-    <!-- HEADER -->
+    <header class="topbar">
 
-    <div class="topbar">
-
-        <div class="brand">
-
+        <div>
             <h1>🎰 FAST BINGO ADMIN</h1>
-
-            <span class="subtitle">
-                Deposit & Withdrawal Management
-            </span>
-
+            <p class="subtitle">
+                Deposit & Withdrawal Management Panel
+            </p>
         </div>
 
-        <div class="top-actions">
+        <div class="actions-top">
 
             <button
                 class="refresh-btn"
@@ -46,91 +35,51 @@
                 class="logout-btn"
                 onclick="logout()">
 
-                Logout
+                🚪 Logout
 
             </button>
 
         </div>
 
-    </div>
+    </header>
 
-    <!-- DASHBOARD STATS -->
+    <section class="stats">
 
-    <div class="stats">
+        <div class="card">
 
-        <div class="card deposit-card">
+            <div class="icon">💰</div>
 
-            <div class="card-icon">
+            <h3>Pending Deposits</h3>
 
-                💰
+            <span id="deposit-count">0</span>
 
-            </div>
+        </div>
 
-            <div class="card-content">
+        <div class="card">
 
-                <h3>
-                    Pending Deposits
-                </h3>
+            <div class="icon">💸</div>
 
-                <span id="deposit-count">
-                    0
-                </span>
+            <h3>Pending Withdrawals</h3>
 
+            <span id="withdraw-count">0</span>
+
+        </div>
+
+    </section>
+
+    <section class="transactions-section">
+
+        <h2>Transactions</h2>
+
+        <div id="transactions">
+
+            <div class="loading">
+                Loading transactions...
             </div>
 
         </div>
 
-        <div class="card withdraw-card">
-
-            <div class="card-icon">
-
-                💸
-
-            </div>
-
-            <div class="card-content">
-
-                <h3>
-                    Pending Withdrawals
-                </h3>
-
-                <span id="withdraw-count">
-                    0
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TRANSACTIONS -->
-
-    <div class="section-header">
-
-        <h2>
-            Pending Transactions
-        </h2>
-
-    </div>
-
-    <div id="transactions">
-
-        <div class="loading">
-
-            Loading transactions...
-
-        </div>
-
-    </div>
-
-    <!-- FOOTER -->
-
-    <div class="footer">
-
-        FAST BINGO ADMIN PANEL
-
-    </div>
+    </section>
 
 </div>
 
