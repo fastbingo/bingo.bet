@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>FAST BINGO</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- HEADER -->
+
+<header class="app-header">
+
+<div class="brand">
+
+<button
+class="nav-btn"
+onclick="goHome()">
+
+🏠
+
+</button>
+
+<div>
+
+<div class="logo-title">
+
+FAST <span class="highlight">BINGO</span>
+
+</div>
+
+<div class="logo-sub">
+
+75 BALL TELEGRAM MINI APP
+
+</div>
+
+</div>
+
+</div>
+
+<div class="header-actions">
+
+<button
+id="sound-toggle-btn"
+class="sound-toggle"
+onclick="toggleSound()">
+
+🔊
+
+</button>
+
+<div
+class="balance-badge"
+onclick="switchTab('wallet')">
+
+<span>ETB</span>
+
+<span id="user-balance">
+
+0.00
+
+</span>
+
+<span class="plus-icon">+</span>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- NAVIGATION -->
+
+<nav class="tab-bar">
+
+<button
+id="tab-home"
+class="tab-item active"
+onclick="switchTab('home')">
+
+🏠
+
+<span>Home</span>
+
+</button>
+
+<button
+id="tab-game"
+class="tab-item"
+onclick="switchTab('game')">
+
+🎮
+
+<span>Game</span>
+
+</button>
+
+<button
+id="tab-winners"
+class="tab-item"
+onclick="switchTab('winners')">
+
+🏆
+
+<span>Winners</span>
+
+</button>
+
+<button
+id="tab-wallet"
+class="tab-item"
+onclick="switchTab('wallet')">
+
+💳
+
+<span>Wallet</span>
+
+</button>
+
+<button
+id="tab-referral"
+class="tab-item"
+onclick="switchTab('referral')">
+
+🎁
+
+<span>Referral</span>
+
+</button>
+
+</nav>
+
+<!-- ================= HOME ================= -->
+
+<main id="view-home" class="view-panel">
+
+<div class="welcome-banner">
+
+<div class="banner-badge">
+
+WELCOME BONUS
+
+</div>
+
+<div class="banner-body">
+
+<h3>
+
+🎉 Claim 30 ETB Free Bonus
+
+</h3>
+
+<p>
+
+Verify your account and receive
+30 ETB instantly.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="welcome-banner">
+
+<div class="banner-badge">
+
+REFERRAL REWARD
+
+</div>
+
+<div class="banner-body">
+
+<h3>
+
+🎁 Get 15 ETB Per Friend
+
+</h3>
+
+<p>
+
+Invite friends using your referral code.
+
+You earn 15 ETB.
+They earn 15 ETB.
+
+</p>
+
+</div>
+
+</div>
+
+<section class="game-status-card">
+
+<div class="status-top">
+
+<span
+id="game-phase-tag"
+class="phase-tag">
+
+WAITING FOR NEXT ROUND
+
+</span>
+
+<span
+id="match-timer-display"
+class="timer-pill">
+
+STARTS IN 30s
+
+</span>
+
+</div>
+
+<div class="caller-box">
+
+<div
+id="current-ball-el"
+class="giant-ball B">
+
+<span
+id="current-letter">
+
+--
+
+</span>
+
+<span
+id="current-number">
+
+--
+
+</span>
+
+</div>
+
+<div class="balls-history">
+
+<div class="history-label">
+
+BALLS DRAWN
+
+(<span id="called-count">0</span>)
+
+</div>
+
+<div
+id="recent-balls-list"
+class="balls-strip">
+
+<span class="placeholder-text">
+
+Waiting for game...
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="ticket-picker-card">
+
+<div class="picker-header">
+
+<h3>
+
+Select Bingo Tickets
+
+</h3>
+
+<button
+class="btn-random"
+onclick="selectRandomTicket()">
+
+🎲 Random
+
+</button>
+
+</div>
+
+<div class="search-bar">
+
+<input
+type="number"
+id="ticket-search-input"
+placeholder="Ticket Number">
+
+<button
+class="btn-go"
+onclick="jumpToTicket()">
+
+Go
+
+</button>
+
+</div>
+
+<div
+id="preset-grid"
+class="ticket-pills-grid">
+
+</div>
+
+<div class="selection-summary">
+
+<span>
+
+Selected:
+<strong id="selected-tickets-count">
+
+0
+
+</strong>
+
+</span>
+
+<span>
+
+Cost:
+<strong id="total-ticket-cost">
+
+0 ETB
+
+</strong>
+
+</span>
+
+</div>
+
+<button
+class="btn-buy"
+onclick="confirmPurchase()">
+
+BUY TICKET
+(10 ETB)
+
+</button>
+
+</section>
+
+</main>
+
+<!-- ================= GAME ================= -->
+
+<main
+id="view-game"
+class="view-panel hidden">
+
+<div class="game-header-bar">
+
+<h2>
+
+ACTIVE TICKETS
+
+</h2>
+
+</div>
+
+<div
+id="tickets-container"
+class="compact-tickets-grid">
+
+</div>
+
+</main>
+
+<!-- ================= WINNERS ================= -->
+
+<main
+id="view-winners"
+class="view-panel hidden">
+
+<div class="card-panel">
+
+<h2>
+
+🏆 Winners Board
+
+</h2>
+
+<div
+id="public-winners-list">
+
+</div>
+
+</div>
+
+</main>
+
+<!-- ================= WALLET ================= -->
+
+<main
+id="view-wallet"
+class="view-panel hidden">
+
+<div class="card-panel">
+
+<h2>
+
+💳 Telebirr Wallet
+
+</h2>
+
+<div class="balance-card-lg">
+
+<span>
+
+Current Balance
+
+</span>
+
+<h1 id="wallet-balance-large">
+
+0.00 ETB
+
+</h1>
+
+</div>
+
+<!-- Deposit -->
+
+<div class="telebirr-box">
+
+<span class="tb-tag">
+
+telebirr
+
+</span>
+
+<p>
+
+Send deposit using Telebirr:
+
+</p>
+
+<div class="tb-info">
+
+<strong>
+
+📱 0920384625
+
+</strong>
+
+<strong>
+
+👤 EFA
+
+</strong>
+
+</div>
+
+<button
+class="btn-primary"
+onclick="copyTelebirrNumber()">
+
+Copy Number
+
+</button>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Deposit Amount
+
+</label>
+
+<input
+type="number"
+id="dep-amount">
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Telebirr Transaction ID
+
+</label>
+
+<input
+type="text"
+id="dep-txnid">
+
+</div>
+
+<button
+class="btn-primary"
+onclick="submitDepositRequest()">
+
+Submit Deposit
+
+</button>
+
+<hr style="margin:20px 0;opacity:.2;">
+
+<div class="form-group">
+
+<label>
+
+Withdraw Amount
+
+</label>
+
+<input
+type="number"
+id="wd-amount">
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Telebirr Phone Number
+
+</label>
+
+<input
+type="tel"
+id="wd-phone">
+
+</div>
+
+<button
+class="btn-primary"
+onclick="submitWithdrawalRequest()">
+
+Submit Withdrawal
+
+</button>
+
+<div
+id="wallet-history-list"
+style="margin-top:20px">
+
+</div>
+
+</div>
+
+</main>
+
+<!-- ================= REFERRAL ================= -->
+
+<main
+id="view-referral"
+class="view-panel hidden">
+
+<div class="card-panel">
+
+<h2>
+
+🎁 Referral Program
+
+</h2>
+
+<p>
+
+Invite friends and earn
+15 ETB for each verified player.
+
+</p>
+
+<div class="referral-box">
+
+<div id="referral-code">
+
+Loading...
+
+</div>
+
+<button
+class="btn-primary"
+onclick="copyReferralCode()">
+
+Copy Referral Code
+
+</button>
+
+</div>
+
+<div class="stats-box">
+
+<div>
+
+Friends
+
+<br>
+
+<strong id="total-referrals">
+
+0
+
+</strong>
+
+</div>
+
+<div>
+
+Earned
+
+<br>
+
+<strong id="referral-earned">
+
+0 ETB
+
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- BINGO BUTTON -->
+
+<div
+id="action-bar"
+class="action-bar hidden">
+
+<button
+class="bingo-claim-btn"
+onclick="claimBingo()">
+
+BINGO!
+
+</button>
+
+</div>
+
+</div>
+
+<!-- CONTACT MODAL -->
+
+<div
+id="contact-modal"
+class="modal-overlay hidden">
+
+<div class="modal-card">
+
+<h3>
+
+Account Verification
+
+</h3>
+
+<p>
+
+Verify your phone number and activate
+your 30 ETB welcome bonus.
+
+</p>
+
+<input
+type="text"
+id="referral-input"
+placeholder="Referral Code (Optional)"
+style="margin:12px 0;">
+
+<button
+class="btn-primary"
+onclick="requestContactVerification()">
+
+📱 Verify Account
+
+</button>
+
+</div>
+
+</div>
+
+<!-- WINNER MODAL -->
+
+<div
+id="winner-modal"
+class="modal-overlay hidden">
+
+<div class="modal-card">
+
+<button
+class="modal-close"
+onclick="closeWinnerModal()">
+
+×
+
+</button>
+
+<div id="modal-content">
+
+</div>
+
+</div>
+
+</div>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script src="app.js"></script>
+
+</body>
+</html>
