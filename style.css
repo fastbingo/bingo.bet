@@ -1,0 +1,1107 @@
+/* ==========================================================================
+   FAST BINGO PRO
+   COMPLETE PROFESSIONAL STYLE.CSS
+   Telegram Mini App • Casino Theme • Mobile + Tablet Responsive
+   ========================================================================== */
+
+:root {
+
+  --bg-main: #090D14;
+  --bg-card: #121A28;
+  --bg-card-alt: #1B2840;
+
+  --gold: #FBBF24;
+  --gold-dark: #F59E0B;
+
+  --green: #10B981;
+  --blue: #3B82F6;
+  --purple: #8B5CF6;
+  --red: #EF4444;
+
+  --telebirr: #00A3E0;
+
+  --text: #FFFFFF;
+  --text-muted: #94A3B8;
+
+  --radius: 14px;
+
+  --shadow:
+    0 10px 30px rgba(0,0,0,.30);
+
+  --premium-gradient:
+    linear-gradient(
+      135deg,
+      #FBBF24 0%,
+      #F59E0B 60%,
+      #D97706 100%
+    );
+}
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg-main);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  min-height:100vh;
+}
+
+.hidden{
+  display:none !important;
+}
+
+#app{
+  max-width:520px;
+  margin:auto;
+  min-height:100vh;
+  padding:10px;
+  padding-bottom:90px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.app-header{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:var(--bg-card);
+
+  border-radius:var(--radius);
+
+  padding:12px;
+
+  margin-bottom:10px;
+
+  box-shadow:var(--shadow);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.nav-btn{
+
+  width:42px;
+  height:42px;
+
+  border:none;
+  border-radius:10px;
+
+  background:var(--bg-card-alt);
+
+  cursor:pointer;
+
+  color:#fff;
+}
+
+.logo-title{
+  font-size:18px;
+  font-weight:900;
+}
+
+.highlight{
+  color:var(--gold);
+}
+
+.logo-sub{
+  font-size:9px;
+  color:var(--blue);
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.sound-toggle{
+
+  width:40px;
+  height:40px;
+
+  border:none;
+  cursor:pointer;
+
+  background:var(--bg-card-alt);
+
+  border-radius:10px;
+
+  color:white;
+
+  font-size:15px;
+}
+
+.balance-badge{
+
+  display:flex;
+  align-items:center;
+  gap:5px;
+
+  padding:8px 12px;
+
+  border-radius:30px;
+
+  cursor:pointer;
+
+  border:1px solid var(--green);
+
+  background:
+    rgba(16,185,129,.15);
+
+  color:var(--green);
+
+  font-weight:800;
+}
+
+.plus-icon{
+
+  width:16px;
+  height:16px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--green);
+
+  color:black;
+}
+
+/* ==========================================================================
+   TAB BAR
+   ========================================================================== */
+
+.tab-bar{
+
+  display:flex;
+  gap:5px;
+
+  background:var(--bg-card);
+
+  border-radius:12px;
+
+  padding:5px;
+
+  margin-bottom:12px;
+}
+
+.tab-item{
+
+  flex:1;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  border:none;
+  cursor:pointer;
+
+  color:var(--text-muted);
+
+  background:transparent;
+
+  padding:8px;
+
+  border-radius:10px;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+.tab-item.active{
+
+  background:var(--blue);
+
+  color:white;
+}
+
+/* ==========================================================================
+   PANELS
+   ========================================================================== */
+
+.view-panel{
+  display:block;
+}
+
+/* ==========================================================================
+   BONUS BANNERS
+   ========================================================================== */
+
+.welcome-banner{
+
+  padding:14px;
+
+  border-radius:var(--radius);
+
+  margin-bottom:10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(251,191,36,.18),
+      rgba(245,158,11,.05)
+    );
+
+  border:
+    1px solid rgba(251,191,36,.30);
+}
+
+.banner-badge{
+
+  display:inline-block;
+
+  background:var(--premium-gradient);
+
+  color:black;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  border-radius:5px;
+
+  padding:4px 8px;
+}
+
+.banner-body h3{
+
+  margin-top:8px;
+
+  font-size:17px;
+}
+
+.banner-body p{
+
+  margin-top:6px;
+
+  color:var(--text-muted);
+
+  font-size:12px;
+
+  line-height:1.5;
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+.game-status-card,
+.ticket-picker-card,
+.card-panel{
+
+  background:var(--bg-card);
+
+  border-radius:var(--radius);
+
+  padding:14px;
+
+  margin-bottom:10px;
+
+  box-shadow:var(--shadow);
+}
+
+/* ==========================================================================
+   BALL CALLER
+   ========================================================================== */
+
+.status-top{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:12px;
+}
+
+.phase-tag{
+
+  color:var(--gold);
+
+  font-size:11px;
+
+  font-weight:900;
+}
+
+.timer-pill{
+
+  border-radius:8px;
+
+  background:
+    rgba(239,68,68,.15);
+
+  border:
+    1px solid rgba(239,68,68,.4);
+
+  color:var(--red);
+
+  padding:4px 8px;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.caller-box{
+
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+}
+
+.giant-ball{
+
+  width:85px;
+  height:85px;
+
+  border-radius:50%;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:900;
+
+  flex-shrink:0;
+}
+
+.giant-ball.B{
+  background:#EF4444;
+}
+
+.giant-ball.I{
+  background:#3B82F6;
+}
+
+.giant-ball.N{
+  background:#F59E0B;
+}
+
+.giant-ball.G{
+  background:#10B981;
+}
+
+.giant-ball.O{
+  background:#8B5CF6;
+}
+
+#current-letter{
+  font-size:14px;
+}
+
+#current-number{
+  font-size:32px;
+}
+
+.balls-history{
+  flex:1;
+}
+
+.history-label{
+
+  font-size:11px;
+
+  margin-bottom:5px;
+
+  color:var(--text-muted);
+}
+
+.balls-strip{
+
+  display:flex;
+
+  gap:6px;
+
+  overflow-x:auto;
+}
+
+.balls-strip::-webkit-scrollbar{
+  display:none;
+}
+
+.mini-ball{
+
+  min-width:34px;
+  height:34px;
+
+  border-radius:50%;
+
+  background:var(--bg-card-alt);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:12px;
+  font-weight:900;
+}
+
+.placeholder-text{
+  color:var(--text-muted);
+  font-size:11px;
+}
+
+/* ==========================================================================
+   TICKET PICKER
+   ========================================================================== */
+
+.picker-header{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:10px;
+}
+
+.search-bar{
+
+  display:flex;
+
+  gap:6px;
+
+  margin-bottom:10px;
+}
+
+.search-bar input{
+
+  flex:1;
+}
+
+.btn-go{
+
+  width:70px;
+
+  border:none;
+
+  cursor:pointer;
+
+  border-radius:10px;
+
+  background:var(--blue);
+
+  color:white;
+
+  font-weight:800;
+}
+
+.btn-random{
+
+  border:none;
+
+  cursor:pointer;
+
+  padding:8px 12px;
+
+  border-radius:10px;
+
+  background:var(--purple);
+
+  color:white;
+
+  font-weight:800;
+}
+
+.ticket-pills-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(5,1fr);
+
+  gap:5px;
+
+  max-height:240px;
+
+  overflow-y:auto;
+
+  margin-bottom:10px;
+}
+
+.ticket-pills-grid::-webkit-scrollbar{
+  width:5px;
+}
+
+.ticket-pills-grid::-webkit-scrollbar-thumb{
+  background:var(--gold);
+  border-radius:10px;
+}
+
+.pill{
+
+  text-align:center;
+
+  background:var(--bg-card-alt);
+
+  border-radius:8px;
+
+  padding:8px 4px;
+
+  cursor:pointer;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.pill:hover{
+  transform:translateY(-2px);
+}
+
+.pill.selected{
+
+  background:var(--blue);
+
+  color:white;
+}
+
+.selection-summary{
+
+  display:flex;
+  justify-content:space-between;
+
+  font-size:12px;
+
+  margin-bottom:12px;
+}
+
+.selection-summary strong{
+  color:var(--gold);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn-buy,
+.btn-primary{
+
+  width:100%;
+
+  border:none;
+
+  cursor:pointer;
+
+  padding:12px;
+
+  border-radius:12px;
+
+  font-size:14px;
+
+  font-weight:900;
+
+  transition:.2s;
+}
+
+.btn-buy{
+
+  background:var(--premium-gradient);
+
+  color:black;
+}
+
+.btn-primary{
+
+  background:var(--blue);
+
+  color:white;
+}
+
+.btn-primary:hover,
+.btn-buy:hover{
+
+  transform:translateY(-2px);
+}
+
+/* ==========================================================================
+   GAME BOARD
+   ========================================================================== */
+
+.game-header-bar{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:10px;
+}
+
+.compact-tickets-grid{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.compact-ticket-card{
+
+  background:var(--bg-card);
+
+  padding:10px;
+
+  border-radius:12px;
+
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.bingo-grid-compact{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(5,1fr);
+
+  gap:4px;
+}
+
+.grid-col-header{
+
+  text-align:center;
+
+  background:var(--gold);
+
+  color:black;
+
+  border-radius:5px;
+
+  padding:4px;
+
+  font-weight:900;
+}
+
+.grid-cell-compact{
+
+  aspect-ratio:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:5px;
+
+  background:var(--bg-card-alt);
+
+  font-size:12px;
+
+  font-weight:800;
+}
+
+.grid-cell-compact.free{
+
+  color:var(--gold);
+
+  border:1px solid var(--gold);
+}
+
+.grid-cell-compact.daubed{
+
+  background:var(--green);
+
+  color:white;
+}
+
+/* ==========================================================================
+   WINNERS
+   ========================================================================== */
+
+#public-winners-list{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.winner-item{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:12px;
+
+  background:var(--bg-card-alt);
+
+  border-radius:10px;
+}
+
+/* ==========================================================================
+   WALLET
+   ========================================================================== */
+
+.balance-card-lg{
+
+  text-align:center;
+
+  background:#0B0F17;
+
+  border-radius:12px;
+
+  padding:20px;
+
+  margin-bottom:15px;
+}
+
+.balance-card-lg span{
+
+  font-size:12px;
+
+  color:var(--text-muted);
+}
+
+.balance-card-lg h1{
+
+  margin-top:5px;
+
+  color:var(--green);
+}
+
+.telebirr-box{
+
+  background:
+    rgba(0,163,224,.12);
+
+  border:
+    1px solid rgba(0,163,224,.4);
+
+  border-radius:12px;
+
+  padding:12px;
+
+  margin-bottom:12px;
+}
+
+.tb-tag{
+
+  display:inline-block;
+
+  background:var(--telebirr);
+
+  color:white;
+
+  padding:4px 8px;
+
+  border-radius:5px;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.tb-info{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:6px;
+
+  margin:10px 0;
+}
+
+.form-group{
+  margin-bottom:10px;
+}
+
+.form-group label{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  font-size:12px;
+}
+
+input{
+
+  width:100%;
+
+  background:#0B0F17;
+
+  color:white;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius:10px;
+
+  padding:10px;
+}
+
+#wallet-history-list{
+  margin-top:15px;
+}
+
+/* ==========================================================================
+   REFERRALS
+   ========================================================================== */
+
+.referral-box{
+
+  text-align:center;
+
+  margin-top:15px;
+}
+
+#referral-code{
+
+  border-radius:12px;
+
+  padding:16px;
+
+  background:var(--bg-card-alt);
+
+  color:var(--gold);
+
+  font-size:22px;
+
+  font-weight:900;
+
+  margin-bottom:10px;
+}
+
+.stats-box{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:10px;
+
+  margin-top:15px;
+}
+
+.stats-box div{
+
+  text-align:center;
+
+  background:var(--bg-card-alt);
+
+  border-radius:10px;
+
+  padding:15px;
+}
+
+/* ==========================================================================
+   ACTION BAR
+   ========================================================================== */
+
+.action-bar{
+
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  padding:10px;
+
+  background:
+    rgba(9,13,20,.95);
+
+  z-index:100;
+}
+
+.bingo-claim-btn{
+
+  display:block;
+
+  width:100%;
+
+  max-width:600px;
+
+  margin:auto;
+
+  height:56px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #EF4444,
+      #B91C1C
+    );
+
+  color:white;
+
+  font-size:22px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 20px rgba(239,68,68,.4);
+}
+
+/* ==========================================================================
+   MODALS
+   ========================================================================== */
+
+.modal-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.8);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:999;
+}
+
+.modal-card{
+
+  width:90%;
+
+  max-width:420px;
+
+  background:var(--bg-card);
+
+  border-radius:14px;
+
+  padding:18px;
+
+  position:relative;
+}
+
+.modal-card h3{
+  margin-bottom:10px;
+}
+
+.modal-card p{
+  color:var(--text-muted);
+  font-size:13px;
+}
+
+.modal-close{
+
+  position:absolute;
+
+  top:10px;
+  right:12px;
+
+  border:none;
+
+  background:none;
+
+  color:white;
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+/* ==========================================================================
+   CONFETTI
+   ========================================================================== */
+
+#confetti-canvas{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+
+  z-index:5000;
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVE
+   ========================================================================== */
+
+@media (min-width:768px){
+
+  #app{
+    max-width:1000px;
+    padding:18px;
+  }
+
+  .ticket-pills-grid{
+    grid-template-columns:
+      repeat(8,1fr);
+  }
+
+  .compact-tickets-grid{
+    display:grid;
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .giant-ball{
+
+    width:120px;
+    height:120px;
+  }
+
+  #current-number{
+    font-size:42px;
+  }
+
+  .balance-card-lg h1{
+    font-size:38px;
+  }
+
+  .stats-box{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+}
+
+@media (min-width:1024px){
+
+  #app{
+    max-width:1300px;
+  }
+
+  .ticket-pills-grid{
+    grid-template-columns:
+      repeat(10,1fr);
+  }
+
+  .compact-tickets-grid{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+}
