@@ -1,0 +1,10 @@
+name = "fast-bingo"
+
+main = "worker.js"
+
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fast-bingo"
+database_id = "342ee6b1-e607-4966-a7fa-fdee396c1163"
