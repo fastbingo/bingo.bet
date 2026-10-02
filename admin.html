@@ -5,9 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>FAST BINGO ADMIN</title>
 
@@ -19,33 +18,42 @@ admin.css
 
 <div class="container">
 
-<h1>FAST BINGO ADMIN</h1>
+  <div class="topbar">
 
-<div class="stats">
+    <h1>FAST BINGO ADMIN</h1>
 
-<div class="card">
+    <button class="logout-btn"
+            onclick="logout()">
+      Logout
+    </button>
 
-<h3>Pending Deposits</h3>
+  </div>
 
-<span id="deposit-count">0</span>
+  <div class="stats">
 
-</div>
+    <div class="card">
 
-<div class="card">
+      <h3>Pending Deposits</h3>
 
-<h3>Pending Withdrawals</h3>
+      <span id="deposit-count">0</span>
 
-<span id="withdraw-count">0</span>
+    </div>
 
-</div>
+    <div class="card">
 
-</div>
+      <h3>Pending Withdrawals</h3>
 
-<div id="transactions">
+      <span id="withdraw-count">0</span>
 
-Loading...
+    </div>
 
-</div>
+  </div>
+
+  <div id="transactions">
+
+    Loading...
+
+  </div>
 
 </div>
 
