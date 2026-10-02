@@ -1,0 +1,676 @@
+/* ==========================================================================
+   FAST BINGO TELEGRAM MINI APP
+   COMPLETE STYLE.CSS
+   ========================================================================== */
+
+:root{
+  --bg-main:#0B0F17;
+  --bg-card:#151C28;
+  --bg-card-alt:#1E2838;
+
+  --accent-gold:#F59E0B;
+  --accent-blue:#3B82F6;
+  --accent-green:#10B981;
+  --accent-red:#EF4444;
+  --accent-purple:#8B5CF6;
+
+  --telebirr-blue:#00A3E0;
+
+  --b-color:#EF4444;
+  --i-color:#3B82F6;
+  --n-color:#F59E0B;
+  --g-color:#10B981;
+  --o-color:#8B5CF6;
+
+  --text-main:#F9FAFB;
+  --text-muted:#9CA3AF;
+
+  --radius:12px;
+  --font:'Plus Jakarta Sans',sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESET */
+/* -------------------------------------------------------------------------- */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg-main);
+  color:var(--text-main);
+  font-family:var(--font);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+#app{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  padding:10px;
+  padding-bottom:90px;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.view-panel{
+  display:block;
+}
+
+/* -------------------------------------------------------------------------- */
+/* HEADER */
+/* -------------------------------------------------------------------------- */
+
+.app-header{
+  background:var(--bg-card);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 12px;
+  margin-bottom:8px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-btn{
+  background:var(--bg-card-alt);
+  border:none;
+  color:white;
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.logo-title{
+  font-size:15px;
+  font-weight:900;
+}
+
+.highlight{
+  color:var(--accent-gold);
+}
+
+.logo-sub{
+  display:block;
+  font-size:8px;
+  color:var(--accent-blue);
+  font-weight:800;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.user-profile{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:2px solid var(--accent-gold);
+  object-fit:cover;
+}
+
+.profile-info{
+  font-size:10px;
+}
+
+#user-name{
+  font-weight:800;
+  color:white;
+}
+
+#user-id-display{
+  color:var(--text-muted);
+  font-size:9px;
+}
+
+.sound-toggle{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:8px;
+  background:var(--bg-card-alt);
+  color:white;
+  cursor:pointer;
+}
+
+.balance-badge{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:5px 10px;
+
+  background:rgba(16,185,129,.12);
+
+  border:1px solid var(--accent-green);
+  border-radius:20px;
+
+  cursor:pointer;
+  color:var(--accent-green);
+  font-weight:800;
+  font-size:12px;
+}
+
+.plus-icon{
+  background:var(--accent-green);
+  color:black;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TAB BAR */
+/* -------------------------------------------------------------------------- */
+
+.tab-bar{
+  display:flex;
+  gap:4px;
+
+  background:var(--bg-card);
+  border-radius:10px;
+  padding:4px;
+  margin-bottom:8px;
+}
+
+.tab-item{
+  flex:1;
+  border:none;
+  background:transparent;
+
+  color:var(--text-muted);
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:6px;
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+.tab-item.active{
+  background:var(--accent-blue);
+  color:white;
+}
+
+/* -------------------------------------------------------------------------- */
+/* WELCOME */
+/* -------------------------------------------------------------------------- */
+
+.welcome-banner{
+  padding:12px;
+
+  border-radius:var(--radius);
+
+  background:linear-gradient(
+      135deg,
+      rgba(245,158,11,.15),
+      rgba(59,130,246,.15)
+  );
+
+  border:1px solid var(--accent-gold);
+  margin-bottom:8px;
+}
+
+.banner-badge{
+  display:inline-block;
+
+  background:var(--accent-gold);
+  color:black;
+
+  padding:2px 6px;
+
+  border-radius:4px;
+
+  font-size:8px;
+  font-weight:900;
+}
+
+.banner-body h3{
+  margin-top:5px;
+  font-size:13px;
+}
+
+.banner-body p{
+  margin-top:4px;
+  color:var(--text-muted);
+  font-size:11px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GAME STATUS */
+/* -------------------------------------------------------------------------- */
+
+.game-status-card{
+  background:var(--bg-card);
+  padding:10px;
+  border-radius:var(--radius);
+  margin-bottom:8px;
+}
+
+.status-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+
+.phase-tag{
+  color:var(--accent-gold);
+  font-size:9px;
+  font-weight:800;
+}
+
+.timer-pill{
+  color:var(--accent-red);
+  border:1px solid var(--accent-red);
+  background:rgba(239,68,68,.15);
+  padding:2px 6px;
+  border-radius:4px;
+  font-size:9px;
+}
+
+.caller-box{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.giant-ball{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.giant-ball.B{
+  background:var(--b-color);
+}
+
+.giant-ball.I{
+  background:var(--i-color);
+}
+
+.giant-ball.N{
+  background:var(--n-color);
+}
+
+.giant-ball.G{
+  background:var(--g-color);
+}
+
+.giant-ball.O{
+  background:var(--o-color);
+}
+
+.letter{
+  font-size:10px;
+  font-weight:800;
+}
+
+.num{
+  font-size:20px;
+  font-weight:900;
+}
+
+.balls-strip{
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+}
+
+.mini-ball{
+  min-width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--bg-card-alt);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:10px;
+  font-weight:800;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TICKETS */
+/* -------------------------------------------------------------------------- */
+
+.ticket-picker-card,
+.card-panel{
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  padding:12px;
+}
+
+.ticket-pills-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:4px;
+  max-height:180px;
+  overflow-y:auto;
+}
+
+.pill{
+  background:var(--bg-card-alt);
+  padding:6px;
+  border-radius:5px;
+  cursor:pointer;
+  text-align:center;
+  font-size:10px;
+}
+
+.pill.selected{
+  background:var(--accent-blue);
+  color:white;
+}
+
+.selection-summary{
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+  margin-bottom:8px;
+  font-size:11px;
+}
+
+.btn-buy,
+.btn-primary{
+  width:100%;
+  border:none;
+  border-radius:8px;
+  padding:10px;
+
+  color:white;
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+.btn-buy{
+  background:linear-gradient(135deg,#F59E0B,#D97706);
+}
+
+.btn-primary{
+  background:var(--accent-blue);
+}
+
+/* -------------------------------------------------------------------------- */
+/* BINGO CARD */
+/* -------------------------------------------------------------------------- */
+
+.compact-tickets-grid{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.compact-ticket-card{
+  background:var(--bg-card);
+  padding:8px;
+  border-radius:10px;
+}
+
+.card-info-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:5px;
+}
+
+.bingo-grid-compact{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:3px;
+}
+
+.grid-col-header{
+  height:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-weight:900;
+}
+
+.grid-cell-compact{
+  aspect-ratio:1;
+  border-radius:4px;
+
+  background:var(--bg-card-alt);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+}
+
+.grid-cell-compact.daubed{
+  background:var(--accent-green);
+}
+
+.grid-cell-compact.free{
+  border:1px solid var(--accent-gold);
+  color:var(--accent-gold);
+}
+
+/* -------------------------------------------------------------------------- */
+/* WALLET */
+/* -------------------------------------------------------------------------- */
+
+.wallet-form{
+  margin-top:8px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:8px;
+}
+
+.form-group label{
+  font-size:11px;
+  margin-bottom:4px;
+}
+
+.form-group input{
+  background:#0B0F17;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;
+  color:white;
+  padding:8px;
+}
+
+.balance-card-lg{
+  text-align:center;
+  background:#0B0F17;
+  padding:12px;
+  border-radius:8px;
+  margin:8px 0;
+}
+
+.balance-card-lg h1{
+  color:var(--accent-green);
+}
+
+.wallet-nav{
+  display:flex;
+  gap:6px;
+}
+
+.w-tab{
+  flex:1;
+  border:none;
+  border-radius:8px;
+  padding:8px;
+  cursor:pointer;
+}
+
+.w-tab.active{
+  background:var(--telebirr-blue);
+  color:white;
+}
+
+.empty-msg{
+  text-align:center;
+  color:var(--text-muted);
+}
+
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+/* -------------------------------------------------------------------------- */
+/* WINNERS */
+/* -------------------------------------------------------------------------- */
+
+.winners-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.winner-item{
+  background:var(--bg-card-alt);
+  border-radius:8px;
+  padding:8px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MODALS */
+/* -------------------------------------------------------------------------- */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.85);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:999;
+}
+
+.modal-card{
+  width:100%;
+  max-width:340px;
+
+  background:var(--bg-card);
+
+  border-radius:12px;
+  padding:16px;
+
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+  top:6px;
+  right:10px;
+
+  background:none;
+  border:none;
+
+  color:white;
+  cursor:pointer;
+
+  font-size:22px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ACTION BAR */
+/* -------------------------------------------------------------------------- */
+
+.action-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+
+  padding:8px;
+
+  background:rgba(11,15,23,.95);
+
+  z-index:500;
+}
+
+.bingo-claim-btn{
+  width:100%;
+  max-width:480px;
+
+  height:46px;
+
+  border:none;
+  border-radius:10px;
+
+  background:linear-gradient(
+      135deg,
+      #EF4444,
+      #DC2626
+  );
+
+  color:white;
+  font-size:18px;
+  font-weight:900;
+
+  cursor:pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CONFETTI */
+/* -------------------------------------------------------------------------- */
+
+#confetti-canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  pointer-events:none;
+  z-index:1000;
+}
