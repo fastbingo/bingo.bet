@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>FAST BINGO</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+<header class="app-header">
+
+<div class="brand">
+
+<v class="logo-title">
+FAST <span class="highlight">BINGO</span>
+</div>
+
+<div class="logo-sub">
+75 BALL TELEGRAM BINGO
+</div>
+</div>
+
+</div>
+
+<div class="header-actions">
+
+<div class="user-profile">
+
+<img id="user-avatar"
+     class="avatar"
+     src="https://placehold.co/60x60">
+
+<div class="profile-info">
+<div id="user-namev>
+
+</div>
+
+<button id="sound-toggle-btn"
+        class="sound-toggle"
+        onclick="toggleSound()">
+🔊
+</button>
+
+<div class="balance-badge"
+     onclick="switchTab('wallet')">
+
+<span class="cur">ETB</span>
+
+<span id="user-balance">
+0.00
+</span>
+
+<span class="plus-icon">
++
+</span>
+
+</div>
+
+</div>
+
+</header>
+
+<nav class="tab-bar">
+
+<button id="tab-home"
+        class="tab-item active"
+        onclick="switchTab('home')">
+🏠
+<span>Home</span>
+</button>
+
+<button id="tab-game"
+        class="tab-item"
+        onclick="switchTab('game')">
+🎮
+<span>Game</span>
+</button>
+
+<button id="tab-winners"
+        class="tab-item"
+        onclick="switchTab('winners')">
+🏆
+<span>Winners</span>
+</button>
+
+<button id="tab-wallet"
+        class="tab-item"
+        onclick="switchTab('wallet')">
+💳
+<span>Wallet</span>
+</button>
+
+</nav>
+
+<!-- HOME -->
+
+<main id="view-home" class="view-panel">
+
+<div id="welcome-banner"
+     class="welcome-banner">
+
+<div class="banner-badge">
+WELCOME BONUS
+</div>
+
+<div class="banner-body">
+<h3>🎉 Welcome To FAST BINGO</h3>
+<p>
+Verify your account to receive your welcome bonus.
+</p>
+</div>
+
+</div>
+
+<section class="game-status-card">
+
+<div class="status-top">
+
+<span id="game-phase-tag"
+      class="phase-tag">
+WAITING FOR NEXT ROUND
+</span>
+
+<span id="match-timer-display"
+      class="timer-pill">
+STARTS IN 30s
+</span>
+
+</div>
+
+<div class="caller-box">
+
+<div class="giant-ball B"
+     id="current-ball-el">
+
+<span class="letter"
+      id="current-letter">
+--
+</span>
+
+<span class="num"
+      id="current-number">
+--
+</span>
+
+</div>
+
+<div class="balls-history">
+
+<div class="history-label">
+CALLED BALLS
+(<span id="called-count">0</span>)
+</div>
+
+<div id="recent-balls-list"
+     class="balls-strip">
+
+<span class="placeholder-text">
+Waiting...
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="ticket-picker-card">
+
+<div class="picker-header">
+
+<div>
+<h3>CHOOSE TICKETS</h3>
+<span class="sub">10 ETB / Ticket</span>
+</div>
+
+<button class="btn-random"
+        onclick="selectRandomTicket()">
+🎲 Random
+</button>
+
+</div>
+
+<div class="search-bar">
+
+<input type="number"
+       id="ticket-search-input"
+       min="1"
+       max="500"
+       placeholder="Ticket #">
+
+<button class="btn-go"
+        onclick="jumpToTicket()">
+Go
+</button>
+
+</div>
+
+<div id="preset-grid"
+     class="ticket-pills-grid">
+</div>
+
+<div class="selection-summary">
+
+<span>
+Selected:
+<strong id="selected-tickets-count">
+0
+</strong>
+</span>
+
+<span>
+Cost:
+<strong id="total-ticket-cost">
+0 ETB
+</strong>
+</span>
+
+</div>
+
+<div class="options-row">
+
+<label class="checkbox-container">
+
+<input type="checkbox"
+       checked
+       onchange="toggleAutoDaub(this.checked)">
+
+<span>
+Auto Daub
+</span>
+
+</label>
+
+</div>
+
+<button id="buy-btn"
+        class="btn-buy"
+        onclick="confirmPurchase()">
+BUY TICKETS
+</button>
+
+</section>
+
+</main>
+
+<!-- GAME -->
+
+<main id="view-game"
+      class="view-panel hidden">
+
+<div class="game-header-bar">
+
+<h2>ACTIVE TICKETS</h2>
+
+<button class="btn-sm"
+        onclick="switchTab('home')">
+Buy More
+</button>
+
+</div>
+
+<div id="tickets-container"
+     class="compact-tickets-grid">
+</div>
+
+</main>
+
+<!-- WINNERS -->
+
+<main id="view-winners"
+      class="view-panel hidden">
+
+<div class="card-panel">
+
+<div class="section-title">
+
+<h2>🏆 WINNERS BOARD</h2>
+
+<p>
+Recent verified winners.
+</p>
+
+</div>
+
+<div id="public-winners-list"
+     class="winners-list">
+</div>
+
+</div>
+
+</main>
+
+<!-- WALLET -->
+
+<main id="view-wallet"
+      class="view-panel hidden">
+
+<div class="card-panel">
+
+<h2>TELEBIRR WALLET</h2>
+
+<div class="balance-card-lg">
+
+<span>Available Balance</span>
+
+<h1 id="wallet-balance-large">
+0.00 ETB
+</h1>
+
+</div>
+
+<div class="wallet-nav">
+
+<button id="btn-show-deposit"
+        class="w-tab active"
+        onclick="toggleWalletForm('deposit')">
+Deposit
+</button>
+
+<button id="btn-show-withdraw"
+        class="w-tab"
+        onclick="toggleWalletForm('withdraw')">
+Withdraw
+</button>
+
+</div>
+
+<div id="deposit-form"
+     class="wallet-form">
+
+<div class="form-group">
+<label>Amount</label>
+<input id="dep-amount"
+       type="number">
+</div>
+
+<div class="form-group">
+<label>Telebirr Transaction ID</label>
+<input id="dep-txnid"
+       type="text">
+</div>
+
+<button class="btn-primary"
+        onclick="submitDepositRequest()">
+Submit Deposit
+</button>
+
+</div>
+
+<div id="withdraw-form"
+     class="wallet-form hidden">
+
+<div class="form-group">
+<label>Amount</label>
+<input id="wd-amount"
+       type="number">
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input id="wd-phone"
+       type="tel">
+</div>
+
+<button class="btn-primary"
+        onclick="submitWithdrawalRequest()">
+Submit Withdrawal
+</button>
+
+</div>
+
+<div class="history-list-box">
+
+<h3>Transaction History</h3>
+
+<div id="wallet-history-list">
+<p class="empty-msg">
+No transactions yet.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<!-- ACTION BAR -->
+
+<div id="action-bar"
+     class="action-bar hidden">
+
+<button id="bingo-btn"
+        class="bingo-claim-btn"
+        onclick="claimBingo()">
+BINGO!
+</button>
+
+</div>
+
+<!-- CONTACT MODAL -->
+
+<div id="contact-modal"
+     class="modal-overlay hidden">
+
+<div class="modal-card">
+
+<h3>Account Verification</h3>
+
+<p>
+Share your Telegram contact to activate your account.
+</p>
+
+<button class="btn-primary"
+        onclick="requestContactVerification()">
+Share Contact
+</button>
+
+</div>
+
+</div>
+
+<!-- WINNER MODAL -->
+
+<div id="winner-modal"
+     class="modal-overlay hidden"
+     onclick="closeWinnerModal(event)">
+
+<div class="modal-card">
+
+<button class="modal-close"
+        onclick="closeWinnerModal(null,true)">
+×
+</button>
+
+<div id="modal-content"></div>
+
+</div>
+
+</div>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script src="app.js"></script>
+
+</body>
+</html>
