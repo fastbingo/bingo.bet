@@ -18,42 +18,119 @@
 
 <div class="container">
 
-  <div class="topbar">
+    <!-- HEADER -->
 
-    <h1>FAST BINGO ADMIN</h1>
+    <div class="topbar">
 
-    <button class="logout-btn"
-            onclick="logout()">
-      Logout
-    </button>
+        <div class="brand">
 
-  </div>
+            <h1>🎰 FAST BINGO ADMIN</h1>
 
-  <div class="stats">
+            <span class="subtitle">
+                Deposit & Withdrawal Management
+            </span>
 
-    <div class="card">
+        </div>
 
-      <h3>Pending Deposits</h3>
+        <div class="top-actions">
 
-      <span id="deposit-count">0</span>
+            <button
+                class="refresh-btn"
+                onclick="loadPending()">
+
+                🔄 Refresh
+
+            </button>
+
+            <button
+                class="logout-btn"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </div>
 
     </div>
 
-    <div class="card">
+    <!-- DASHBOARD STATS -->
 
-      <h3>Pending Withdrawals</h3>
+    <div class="stats">
 
-      <span id="withdraw-count">0</span>
+        <div class="card deposit-card">
+
+            <div class="card-icon">
+
+                💰
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>
+                    Pending Deposits
+                </h3>
+
+                <span id="deposit-count">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="card withdraw-card">
+
+            <div class="card-icon">
+
+                💸
+
+            </div>
+
+            <div class="card-content">
+
+                <h3>
+                    Pending Withdrawals
+                </h3>
+
+                <span id="withdraw-count">
+                    0
+                </span>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
+    <!-- TRANSACTIONS -->
 
-  <div id="transactions">
+    <div class="section-header">
 
-    Loading...
+        <h2>
+            Pending Transactions
+        </h2>
 
-  </div>
+    </div>
+
+    <div id="transactions">
+
+        <div class="loading">
+
+            Loading transactions...
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        FAST BINGO ADMIN PANEL
+
+    </div>
 
 </div>
 
