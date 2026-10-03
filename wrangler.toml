@@ -1,18 +1,47 @@
+# ============================================================
+#  FAST BINGO — Cloudflare Wrangler reference config
+#  (The production deployment runs on Cloudflare Workers + D1
+#   + Durable Objects + WebSockets. The Next.js app in this
+#   repo is the runnable reference implementation that mirrors
+#   the same architecture using Prisma + socket.io.)
+# ============================================================
+
 name = "fast-bingo"
-
 main = "worker.js"
+compatibility_date = "2024-09-23"
+account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
 
-compatibility_date = "2026-01-01"
-
+# ---- D1 database binding ----
 [[d1_databases]]
-binding = "DB"
-database_name = "fast-bingo"
-database_id = "342ee6b1-e607-4966-a7fa-fdee396c1163"
+binding       = "DB"
+database_name = "fast-bingo-db"
+database_id   = "YOUR_D1_DATABASE_ID"
 
+# ---- Durable Object bindings (BingoEngine) ----
 [[durable_objects.bindings]]
-name = "BINGO_ENGINE"
+name      = "BINGO_ENGINE"
 class_name = "BingoEngine"
 
 [[migrations]]
-tag = "v1"
-new_sqlite_classes = ["BingoEngine"]
+tag      = "v1"
+new_classes = ["BingoEngine"]
+
+# ---- Static assets (GitHub Pages-style frontend) ----
+[site]
+bucket = "./public"
+
+# ---- Secrets (set via `wrangler secret put <NAME>`) ----
+# TELEGRAM_BOT_TOKEN   -> used to verify Telegram WebApp initData
+# ADMIN_KEY            -> admin panel password
+# INTERNAL_SECRET      -> service-to-service signing key
+[vars]
+TELEBIRR_NUMBER      = "0920384625"
+TELEBIRR_ACCOUNT     = "EFA"
+MIN_DEPOSIT          = "10"
+MIN_WITHDRAW         = "50"
+TICKET_PRICE         = "10"
+MAX_TICKETS_PER_ROUND = "4"
+WELCOME_BONUS        = "30"
+REFERRAL_REWARD      = "15"
+PRIZE_SHARE_WINNER   = "0.80"
+PRIZE_SHARE_PLATFORM = "0.20"
